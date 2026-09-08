@@ -1,4 +1,4 @@
-# OOP2026
+<img width="85" height="590" alt="image" src="https://github.com/user-attachments/assets/77873836-8c50-4c59-94ba-0c1a2fce8014" /># OOP2026
 ### Homework1
 ```java
 
@@ -98,3 +98,26 @@ public class Homework3 {
 
 ```
 ![Alt homework11](./images/hw3.jpg)
+
+### Homework4
+```java
+
+public class Homework4 {
+
+	public static void main(String[] args) {
+		int i;
+		int j;
+		
+		for(j = 1; j <= 9; j++) {
+			for(i = 1; i <= 9; i++) {
+				System.out.println(i+ "*" + j + "=" + (i*j)+ "\t");
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+```
+![Alt homework11](./images/hw4.jpg)

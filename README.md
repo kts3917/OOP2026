@@ -50,4 +50,4 @@ public class Homework1 {
 
 
 ```
-![Alt homework11](./images/hk1.jpg)
+![Alt homework11](./images/homework1.jpg)

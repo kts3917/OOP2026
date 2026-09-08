@@ -73,3 +73,27 @@ public class Homework2 {
 }
 ```
 ![Alt homework11](./images/hw2.jpg)
+
+### Homework3
+```java
+
+public class Homework3 {
+
+	public static void main(String[] args) {
+		
+		int a=1;
+		int b=2;
+		
+		for(int i=1; i<=20; i++) {
+			double ratio = (double) b / a;
+			System.out.println(b + " / "+a+" = "+ratio);
+			
+			int next = a + b;
+			a = b;
+			b = next;
+		}
+	}
+
+}
+
+```

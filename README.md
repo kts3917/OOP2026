@@ -51,3 +51,25 @@ public class Homework1 {
 
 ```
 ![Alt homework11](./images/hw1.jpg)
+
+### Homework2
+```java
+public class Homework2 {
+
+	public static void main(String[] args) {
+		int a = 0;
+		int b = 1;
+		
+		for(int i = 1; i<=20; i++) {
+			System.out.print(a + " ");
+			
+			int next = a + b;
+			a = b;
+			b = next;
+		}
+
+	}
+
+}
+```
+

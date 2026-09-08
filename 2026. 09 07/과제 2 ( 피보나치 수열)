@@ -1,14 +1,13 @@
 public class fibonacci {
 
 	public static void main(String[] args) {
-		int n = 20;
-		long a = 0;
-		long b = 1;
+		int a = 0;
+		int b = 1;
 		
-		for(int i = 1; i<=n; i++) {
+		for(int i = 1; i<=20; i++) {
 			System.out.print(a + " ");
 			
-			long next = a + b;
+			int next = a + b;
 			a = b;
 			b = next;
 		}

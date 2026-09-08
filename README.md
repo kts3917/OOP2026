@@ -1,4 +1,4 @@
-<img width="85" height="590" alt="image" src="https://github.com/user-attachments/assets/77873836-8c50-4c59-94ba-0c1a2fce8014" /># OOP2026
+# OOP2026
 ### Homework1
 ```java
 

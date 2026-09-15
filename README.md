@@ -169,7 +169,7 @@ public static double Gregory_Leibniz(int terms) {
 ![Alt homework11](./images/hw5.jpg)
 
 
-### Homework5
+### Homework6
 ```java
 public class Binomial {
 	public static void main(String[] args) {

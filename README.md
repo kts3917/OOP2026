@@ -198,3 +198,35 @@ public class Binomial {
 ```
 
 ![Alt homework11](./images/hw6.jpg)
+
+### Homework7
+```java
+public class Sorting {
+    public static void main(String[] args) {
+    	
+        int data[] = new int[20];
+
+        for(int i = 0; i < 20; i++) {
+            data[i] = (int)(Math.random() * 100);
+        }
+        for(int i = 0; i < data.length - 1; i++) {
+            int minIdx = i;
+            
+            for(int j = i + 1; j < data.length; j++) {
+                if(data[j] < data[minIdx]) {
+                    minIdx = j;
+                }
+            }
+            
+            int temp = data[i];
+            data[i] = data[minIdx];
+            data[minIdx] = temp;
+        }
+
+        for(int i = 0; i < 20; i++) {
+            System.out.println(data[i]);
+        }
+    }
+}
+```
+![Alt homework11](./images/hw7.jpg)

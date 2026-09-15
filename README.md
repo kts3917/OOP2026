@@ -167,3 +167,39 @@ public static double Gregory_Leibniz(int terms) {
 }
 ```
 ![Alt homework11](./images/hw5.jpg)
+
+
+### Homework5
+```java
+public class Binomial {
+	public static void main(String[] args) {
+	int n = 7; // 예시 출력 형태처럼 7줄 출력
+    
+    // 문제에서 요구한 2차원 배열 선언
+    int binomial[][] = new int[n][];
+
+    // 1. 파스칼의 삼각형 배열 구성하기
+    for (int i = 0; i < n; i++) {
+        binomial[i] = new int[i + 1]; // 각 행마다 필요한 칸수만큼 할당
+        
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || j == i) {
+                binomial[i][j] = 1;
+            } else {
+                binomial[i][j] = binomial[i - 1][j - 1] + binomial[i - 1][j];
+            }
+        }
+    }
+
+    // 2. 이미지의 출력 형태대로 화면에 출력하기
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
+            System.out.print(binomial[i][j] + " ");
+        }
+        System.out.println(); // 줄바꿈
+    }
+}
+}
+```
+
+![Alt homework11](./images/hw6.jpg)

@@ -230,3 +230,33 @@ public class Sorting {
 }
 ```
 ![Alt homework11](./images/hw7.jpg)
+
+### Homework8
+```java
+public class Math_random {
+
+	public static void main(String[] args) {
+
+		        int score[][] = new int[30][6];
+
+		        for (int i = 0; i < 30; i++) {
+		            score[i][0] = i + 1;
+
+		            int sum = 0;
+		            for (int j = 1; j <= 4; j++) {
+		                score[i][j] = (int)(Math.random() * 101);
+		                sum += score[i][j];
+		            }
+		            score[i][5] = sum;
+		        }
+		        for (int i = 0; i < 30; i++) {
+		            for (int j = 0; j < 6; j++) {
+		                System.out.printf("%4d", score[i][j]);
+		            }
+		            System.out.println();
+		        }
+		    }
+	}
+```
+![Alt homework11](./images/hw8.jpg)
+

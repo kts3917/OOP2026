@@ -153,6 +153,20 @@ public static double Gregory_Leibniz(int terms) {
         }
         return Math.sqrt(12.0) * sum;
     }
+//
+public class madhava {
+
+	public static void main(String[] args) {
+		int i,n=100,sign=1;
+		double sum=0;
+		for(i=0;i<n;i++) {
+			sum += sign*1./((2.*i+1.)*Math.pow(3., i));
+			sign *=-1;
+		}
+System.out.println(sum*Math.sqrt(12));
+	}
+
+} madahava부분 수정 필요
 
     public static void main(String[] args) {
         int glTerms = 1000000;

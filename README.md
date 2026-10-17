@@ -421,7 +421,7 @@ public class Homrwork13 {
 
 
 
-### Homework13
+### Homework14
 ```java
 import java.util.Arrays;
 
@@ -522,3 +522,124 @@ public class Homework14 {
 }
 ```
 ![Alt homework11](./images/hw14.jpg)
+
+
+### Homework15
+```java
+class Class2048 {
+    int value[][] = new int[4][4];
+
+    Class2048() {
+        init();    
+    }
+
+    void init() {
+        addNewTile();
+        addNewTile();
+    }
+
+    // 빈 공간에 무작위로 2 또는 4를 생성
+    void addNewTile() {
+        for (int k = 0; k < 100; k++) {
+            int i = (int) (Math.random() * 4);
+            int j = (int) (Math.random() * 4);
+            if (value[i][j] == 0) {
+                value[i][j] = ((int) (Math.random() * 2) + 1) * 2; // 2 또는 4
+                break;
+            }
+        }
+    }
+
+    void update() {
+        addNewTile(); // 이동 후 새 타일 추가
+    }
+    int[] mergeRow(int[] row) {
+        int[] newRow = new int[4];
+        int idx = 0;
+        
+        // 0이 아닌 숫자들을 앞으로 모으기
+        for (int i = 0; i < 4; i++) {
+            if (row[i] != 0) {
+                newRow[idx++] = row[i];
+            }
+        }
+        
+        // 같은 숫자가 붙어있으면 합치기
+        for (int i = 0; i < 3; i++) {
+            if (newRow[i] != 0 && newRow[i] == newRow[i + 1]) {
+                newRow[i] *= 2;
+                newRow[i + 1] = 0;
+            }
+        }
+        
+        // 합친 후 다시 앞으로 모으기
+        int[] result = new int[4];
+        idx = 0;
+        for (int i = 0; i < 4; i++) {
+            if (newRow[i] != 0) {
+                result[idx++] = newRow[i];
+            }
+        }
+        return result;
+    }
+    void left() {
+        for (int i = 0; i < 4; i++) {
+            value[i] = mergeRow(value[i]);
+        }
+        update();
+        display();
+    }
+    void right() {
+        for (int i = 0; i < 4; i++) {
+            int[] rev = {value[i][3], value[i][2], value[i][1], value[i][0]};
+            rev = mergeRow(rev);
+            value[i][3] = rev[0]; value[i][2] = rev[1]; value[i][1] = rev[2]; value[i][0] = rev[3];
+        }
+        update();
+        display();
+    }
+
+    void up() {
+        for (int j = 0; j < 4; j++) {
+            int[] col = {value[0][j], value[1][j], value[2][j], value[3][j]};
+            col = mergeRow(col);
+            for (int i = 0; i < 4; i++) {
+                value[i][j] = col[i];
+            }
+        }
+        update();
+        display();
+    }   
+
+    void down() {
+        for (int j = 0; j < 4; j++) {
+            int[] col = {value[3][j], value[2][j], value[1][j], value[0][j]};
+            col = mergeRow(col);
+            value[3][j] = col[0]; value[2][j] = col[1]; value[1][j] = col[2]; value[0][j] = col[3];
+        }
+        update();
+        display();
+    }
+
+    void display() {
+        for(int i=0; i<4; i++) { 
+            for(int j=0; j<4; j++) 
+                System.out.printf("%3d ", value[i][j]);
+            System.out.println();
+        }
+        System.out.println();
+    }    
+}
+
+public class Homework15 {
+    public static void main(String[] args) {
+    	Class2048 obj = new Class2048();
+        obj.display();
+        obj.left();
+        obj.right();
+        obj.up();       
+        obj.down();
+    }
+}
+```
+![Alt homework11](./images/hw15.jpg)

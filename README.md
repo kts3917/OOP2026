@@ -310,3 +310,67 @@ public class HomeWork10 {
 ```
 ![Alt homework11](./images/hw10.jpg)
 
+### Homework11
+```java
+import java.util.Arrays;
+
+public class Homework11 {
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("데이터 개수(array_count) 인자 1개를 입력해주세요.");
+            return;
+        }
+
+        int array_count = Integer.parseInt(args[0]);
+        double[] arr = new double[array_count];
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * 99) + 1;
+        }
+
+        // 배열 출력
+        for (int i = 0; i < array_count; i++) {
+            System.out.print((int)arr[i] + " ");
+        }
+        System.out.println();
+
+        // 산술평균
+        double sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            sum += arr[i];
+        }
+        double arithmeticMean = sum / array_count;
+        System.out.printf("arithmetic mean = %f\n", arithmeticMean);
+
+        // 기하평균
+        double prod = 1;
+        for (int i = 0; i < array_count; i++) {
+            prod *= arr[i];
+        }
+        double geometricMean = Math.pow(prod, 1.0 / array_count);
+        System.out.printf("geometric mean = %f\n", geometricMean);
+
+        // 조화평균
+        double reciprocalSum = 0;
+        for (int i = 0; i < array_count; i++) {
+            reciprocalSum += 1.0 / arr[i];
+        }
+        double harmonicMean = array_count / reciprocalSum;
+        System.out.printf("harmonic mean = %f\n", harmonicMean);
+
+        // 중앙값
+        double[] sortedArr = arr.clone();
+        Arrays.sort(sortedArr);
+        
+        double median;
+        if (array_count % 2 == 1) {
+            // 홀수 인 경우 가운데 값
+            median = sortedArr[array_count / 2];
+        } else {
+            // 짝수 인 경우 가운데 두 값 평균
+            median = (sortedArr[(array_count / 2) - 1] + sortedArr[array_count / 2]) / 2.0;
+        }
+        System.out.printf("median = %f\n", median);
+    }
+}
+```
+![Alt homework11](./images/hw11.jpg)

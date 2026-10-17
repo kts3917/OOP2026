@@ -126,16 +126,17 @@ public class Homework4 {
 ### Homework5
 ```java
 
-public class Homework5{
-public static double Gregory_Leibniz(int terms) {
+public class gregory {
+    
+    public static double Gregory_Leibniz(int terms) {
         double pi = 0;
 
         for (int k = 0; k < terms; k++) {
             double sign;
             if (k % 2 == 0) {
-                sign = 1.0; //짝
+                sign = 1.0; // 짝수
             } else {
-                sign = -1.0; //홀
+                sign = -1.0; // 홀수
             }
             double term = sign * 4.0 / (2 * k + 1);
             pi += term;
@@ -146,37 +147,26 @@ public static double Gregory_Leibniz(int terms) {
 
     public static double Madhava(int terms) {
         double sum = 0;
+        int sign = 1;
 
-        for (int k = 0; k < terms; k++) {
-            double term = Math.pow(-3.0, -k) / (2 * k + 1); //홀일 때 음수, 짝일 때 양수
-            sum += term;
+        for (int i = 0; i < terms; i++) {
+            sum += sign * 1.0 / ((2.0 * i + 1.0) * Math.pow(3.0, i));
+            sign *= -1;
         }
-        return Math.sqrt(12.0) * sum;
+        return sum * Math.sqrt(12.0);
     }
-//
-public class madhava {
-
-	public static void main(String[] args) {
-		int i,n=100,sign=1;
-		double sum=0;
-		for(i=0;i<n;i++) {
-			sum += sign*1./((2.*i+1.)*Math.pow(3., i));
-			sign *=-1;
-		}
-System.out.println(sum*Math.sqrt(12));
-	}
-
-} madahava부분 수정 필요
 
     public static void main(String[] args) {
         int glTerms = 1000000;
         int madhavaTerms = 20;
 
         System.out.println("자바 기본 Math.PI 값: " + Math.PI);
+        
         double glResult = Gregory_Leibniz(glTerms);
-        System.out.println("그레고리 라이프니츠 결과 : " + glResult); //100만번 반복
+        System.out.println("그레고리 라이프니츠 결과 : " + glResult);
+        
         double madhavaResult = Madhava(madhavaTerms);
-        System.out.println("마다바 결과 : " + madhavaResult); //20번 반복
+        System.out.println("마다바 결과 : " + madhavaResult);
     }
 }
 ```

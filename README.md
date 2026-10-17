@@ -374,3 +374,47 @@ public class Homework11 {
 }
 ```
 ![Alt homework11](./images/hw11.jpg)
+
+
+### Homework13
+```java
+import java.util.Scanner;
+
+public class Homrwork13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("입력 (예: 2 + 3): ");
+        String inputString = scanner.nextLine();
+        
+        String[] arr = inputString.split(" ");
+        
+        if (arr.length == 3) {
+            double num1 = Double.parseDouble(arr[0]);
+            String op = arr[1];
+            double num2 = Double.parseDouble(arr[2]);
+            double result = 0;
+            
+            // 연산자
+            if (op.equals("+")) {
+                result = num1 + num2;
+            } else if (op.equals("-")) {
+                result = num1 - num2;
+            } else if (op.equals("*")) {
+                result = num1 * num2;
+            } else if (op.equals("/")) {
+                result = num1 / num2;
+            } else if (op.equals("#")) {
+                result = num1 + num2;
+            }
+            
+            System.out.println("결과: " + result);
+        } else {
+            System.out.println("형식이 올바르지 않습니다.");
+        }
+        
+        scanner.close();
+    }
+}
+```
+![Alt homework11](./images/hw13.jpg)

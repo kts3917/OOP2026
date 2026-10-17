@@ -264,3 +264,49 @@ public class Math_random {
 ```
 ![Alt homework11](./images/hw8.jpg)
 
+### Homework10
+```java
+public class HomeWork10 {
+    public static void main(String[] args) {
+        if (args.length != 4) {
+            System.out.println("인자 4개를 입력해주세요: array_count max_value bin_size display_scale");
+            return;
+        }
+
+        int array_count = Integer.parseInt(args[0]);
+        int max_value = Integer.parseInt(args[1]);
+        int bin_size = Integer.parseInt(args[2]);
+        int display_scale = Integer.parseInt(args[3]);
+        int hist_size = max_value / bin_size;
+
+        int[] arr = new int[array_count];
+        int[] hist = new int[hist_size];
+
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * max_value);
+        }
+
+        for (int i = 0; i < array_count; i++) {
+            int index = arr[i] / bin_size;
+            if (index < hist_size) {
+                hist[index]++;
+            }
+        }
+
+        for (int i = 0; i < hist_size; i++) {
+            int start = i * bin_size;
+            int end = start + bin_size - 1;
+            
+            System.out.printf("%2d~%-2d : ", start, end);
+            
+            int starCount = hist[i] / display_scale;
+            for (int j = 0; j < starCount; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+![Alt homework11](./images/hw10.jpg)
+

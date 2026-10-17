@@ -418,3 +418,107 @@ public class Homrwork13 {
 }
 ```
 ![Alt homework11](./images/hw13.jpg)
+
+
+
+### Homework13
+```java
+import java.util.Arrays;
+
+class Numbers {
+    int num[];
+
+    // 생성자
+    Numbers(int num[]) {
+        this.num = num;
+    }
+    // 총합 구하기
+    double getTotal() {
+        double sum = 0;
+        for (int i = 0; i < num.length; i++) sum += num[i];
+        return sum;
+    }
+    // 산술평균
+    double getArithmeticMean() {
+        return getTotal() / num.length;
+    }
+    // 조화평균
+    double getHarmonicMean() {
+        double reciprocalSum = 0;
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] == 0) continue; // 0 방지
+            reciprocalSum += 1.0 / num[i];
+        }
+        return num.length / reciprocalSum;
+    }
+    // 기하평균
+    double getGeometricMean() {
+        double prod = 1;
+        for (int i = 0; i < num.length; i++) {
+            prod *= num[i];
+        }
+        return Math.pow(prod, 1.0 / num.length);
+    }
+    // 중앙값
+    int getMedian() {
+        int[] sorted = num.clone();
+        Arrays.sort(sorted);
+        return sorted[sorted.length / 2];
+    }
+    // 정렬 메서드
+    void sorting() {
+        Arrays.sort(num);
+    }
+    void drawHistogram(int start, int end, int binCount, int scale) {
+        int binSize = (end - start) / binCount;
+        int[] hist = new int[binCount];
+
+        for (int i = 0; i < num.length; i++) {
+            int index = (num[i] - start) / binSize;
+            if (index >= binCount) index = binCount - 1;
+            if (index >= 0) hist[index]++;
+        }
+        for (int i = 0; i < binCount; i++) {
+            int bStart = start + (i * binSize);
+            int bEnd = bStart + binSize - 1;
+            System.out.printf("%2d~%-2d : ", bStart, bEnd);
+            
+            int starCount = hist[i] / scale;
+            for (int j = 0; j < starCount; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+    }
+    // 배열 출력 메서드
+    void display() {
+        System.out.printf("%3d :", num.length);
+        for (int i = 0; i < num.length; i++) {
+            System.out.printf("%3d ", num[i]);
+        }
+        System.out.println();
+    }
+}
+public class Homework14 {
+    public static void main(String[] args) {
+        int size = 100;
+        int data[] = new int[size];
+        
+        for (int i = 0; i < size; i++) {
+            data[i] = (int) (Math.random() * 100);
+        }
+        
+        Numbers obj = new Numbers(data);
+        obj.display();
+        
+        System.out.printf("Arithmetic Mean : %5.2f\n", obj.getArithmeticMean());
+        System.out.printf("Geometric Mean  : %5.2f\n", obj.getGeometricMean());
+        System.out.printf("Harmonic Mean   : %5.2f\n", obj.getHarmonicMean());
+        System.out.printf("Median          : %d\n", obj.getMedian());
+        
+        System.out.println("\n[Histogram]");
+        obj.drawHistogram(0, 100, 10, 1);
+    }
+}
+```
+![Alt homework11](./images/hw14.jpg)
